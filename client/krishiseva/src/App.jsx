@@ -1,8 +1,12 @@
 import React from 'react'
+import Routing from './utils/Routing'
+
 
 const App = () => {
   return (
-    <div className='bg-red-100'>App</div>
+    <div className='h-screen w-full bg-zinc-300'>
+      <Routing/>
+    </div>
   )
 }
 
