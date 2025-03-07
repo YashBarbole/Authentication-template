@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import axios from "axios";
 
 // Validation schema
 const schema = yup.object().shape({
@@ -19,13 +18,13 @@ const Login = () => {
 
     const onSubmit = async (data) => {
         try {
-          
+            const response = await axios.post("/api/auth/login" , data);
             alert("Login Successful");
 
            
-            if (response.user.role === "farmer") {
+            if (response.user.role === "Farmer") {
                 navigate("/farmer-dashboard");
-            } else if (response.user.role === "mentor") {
+            } else if (response.user.role === "Mentor") {
                 navigate("/mentor-dashboard");
             } else {
                 navigate("/exporter-dashboard");
