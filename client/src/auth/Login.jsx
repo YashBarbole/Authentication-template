@@ -19,13 +19,17 @@ const Login = () => {
 
     const onSubmit = async (data) => {
         try {
-            const response = await axios.post("/api/auth/login" , data);
+            const response = await axios.post("/api/auth/login", data);
+            console.log("Login response:", response.data);  
+            console.log("User data:", response.data?.data?.user);  
+            console.log("User role:", response.data?.data?.user?.role);  
             alert("Login Successful");
-
-           
-            if (response.data.user.role === "farmer") {
+    
+            const userRole = response.data?.data?.user?.role; 
+    
+            if (userRole === "farmer") {
                 navigate("/farmer-dashboard");
-            } else if (response.data.user.role === "mentor") {
+            } else if (userRole === "mentor") {
                 navigate("/mentor-dashboard");
             } else {
                 navigate("/exporter-dashboard");

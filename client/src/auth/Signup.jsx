@@ -62,6 +62,14 @@ const onSubmit = async (data) => {
                 <button type="submit" className="w-full bg-emerald-600 text-white font-semibold p-3 rounded-md hover:bg-emerald-700 transition">
                     Sign Up
                 </button>
+
+                <p className="text-center text-gray-600 mt-4">
+                    Already registered?{" "}
+                   <span onClick={() => navigate("/login")} className="text-emerald-600 cursor-pointer hover:underline">
+                   Login
+                 </span>
+                </p>
+
             </div>
         </form>
     );
